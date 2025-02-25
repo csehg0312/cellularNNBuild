@@ -79,6 +79,11 @@ RUN bun run vite build
 
 WORKDIR $APP_HOME
 
+WORKDIR $APP_HOME/utils
+RUN poetry run python pkl_save.py
+RUN mv settings.pkl ..
+WORKDIR $APP_HOME
+
 # Add these before copying configurations
 RUN mkdir -p /var/log/nginx /var/log/supervisor && \
     touch /var/run/nginx.pid && \
