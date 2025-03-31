@@ -65,7 +65,7 @@ RUN curl -sSL https://bun.sh/install | bash -s "bun-v1.1.26" && \
     ln -s /root/.bun/bin/bun /usr/local/bin/bun
     
 # Copy the contents of the cloned repository to the application directory
-RUN mv -r /cellularNN/* $APP_HOME/ && rm -rf /cellularNN
+RUN mv /cellularNN/* $APP_HOME/ && rm -rf /cellularNN
 
 # Install Python dependencies using Poetry
 RUN poetry install --no-root
